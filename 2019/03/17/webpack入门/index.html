@@ -79,16 +79,17 @@
 
 
 
-<meta name="description" content="何以解忧，唯有暴富">
-<meta property="og:type" content="website">
-<meta property="og:title" content="个人博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="webpack中文文档webpack官网  了解webpack相关什么是webpack webpack是一个模块打包器（bundler） 在webpack看来，前端所有的资源文件（js/json/css/img/less/…）都会作为模块处理 它将根据模块的依赖关系进行静态分析，生成对应的静态资源理解loader webpack本身只能加载JS/JSON模块，如果要加载其他类型的文件（模块），就">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack入门">
+<meta property="og:url" content="http://yoursite.com/2019/03/17/webpack入门/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="何以解忧，唯有暴富">
+<meta property="og:description" content="webpack中文文档webpack官网  了解webpack相关什么是webpack webpack是一个模块打包器（bundler） 在webpack看来，前端所有的资源文件（js/json/css/img/less/…）都会作为模块处理 它将根据模块的依赖关系进行静态分析，生成对应的静态资源理解loader webpack本身只能加载JS/JSON模块，如果要加载其他类型的文件（模块），就">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-17T06:28:14.293Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="个人博客">
-<meta name="twitter:description" content="何以解忧，唯有暴富">
+<meta name="twitter:title" content="webpack入门">
+<meta name="twitter:description" content="webpack中文文档webpack官网  了解webpack相关什么是webpack webpack是一个模块打包器（bundler） 在webpack看来，前端所有的资源文件（js/json/css/img/less/…）都会作为模块处理 它将根据模块的依赖关系进行静态分析，生成对应的静态资源理解loader webpack本身只能加载JS/JSON模块，如果要加载其他类型的文件（模块），就">
 
 
 
@@ -122,7 +123,7 @@
 
 
 
-  <title>个人博客</title>
+  <title>webpack入门 | 个人博客</title>
   
 
 
@@ -141,8 +142,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -247,9 +247,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -279,9 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/17/webpack入门/" itemprop="url">webpack入门</a></h1>
+          <h1 class="post-title" itemprop="name headline">webpack入门</h1>
         
 
         <div class="post-meta">
@@ -331,24 +329,103 @@
       
 
       
-        
-          
-          
-webpack中文文档webpack官网
+        <blockquote>
+<p><a href="https://www.webpackjs.com/concepts/" target="_blank" rel="noopener">webpack中文文档</a><br><a href="https://webpack.github.io/" target="_blank" rel="noopener">webpack官网</a></p>
+</blockquote>
+<h1 id="了解webpack相关"><a href="#了解webpack相关" class="headerlink" title="了解webpack相关"></a>了解webpack相关</h1><h2 id="什么是webpack"><a href="#什么是webpack" class="headerlink" title="什么是webpack"></a>什么是webpack</h2><ul>
+<li>webpack是一个模块打包器（bundler）</li>
+<li>在webpack看来，前端所有的资源文件（js/json/css/img/less/…）都会作为模块处理</li>
+<li>它将根据模块的依赖关系进行静态分析，生成对应的静态资源<h3 id="理解loader"><a href="#理解loader" class="headerlink" title="理解loader"></a>理解loader</h3></li>
+<li><code>webpack</code>本身只能加载<code>JS/JSON</code>模块，如果要加载其他类型的文件（模块），就需要使用对应的<code>loader</code>进行转换/加载</li>
+<li><code>loader</code>本身也是运行在node.js环境中的javascript模块</li>
+<li>它本身是个函数，接受源文件作为参数，返回转换得结果</li>
+<li><code>loader</code>一般以<code>xxx-loader</code>的方式命名，<code>xxx</code>代表了这个<code>loader</code>需要做的转换功能，比如<code>json-loader</code><h3 id="配置文件（默认）"><a href="#配置文件（默认）" class="headerlink" title="配置文件（默认）"></a>配置文件（默认）</h3></li>
+<li><code>webpack.config.js</code>是一个node模块，返回一个json格式的配置信息对象<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2></li>
+<li>插件可以完成一些loader不能完成的功能。</li>
+<li>插件的使用一般是在webpack的配置信息plugins选项中指定。</li>
+<li><code>CleanWebpackPlugin</code>： 自动生成HTML文件</li>
+<li><code>UgligyJSPlugin</code>: 压缩js文件<h1 id="安装webpack"><a href="#安装webpack" class="headerlink" title="安装webpack"></a>安装webpack</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 全局安装</span><br><span class="line"><span class="meta">#</span> 不推荐全局安装 webpack。这会将你项目中的 webpack 锁定到指定版本，并且在使用不同的 webpack 版本的项目中，可能会导致构建失败。</span><br><span class="line">npm install webpack -g</span><br><span class="line"><span class="meta">#</span> 局部安装</span><br><span class="line">npm install webpack --save-dev</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>如果你使用 webpack 4+ 版本，你还需要安装 CLI。</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev webpack-cli</span><br></pre></td></tr></table></figure>
+<h1 id="编译打包应用"><a href="#编译打包应用" class="headerlink" title="编译打包应用"></a>编译打包应用</h1><ul>
+<li>创建入口<code>src/js/entry.js</code></li>
+<li>创建主页面<code>dist/index.html</code><ul>
+<li><code>&lt;script type=&quot;text/javascript&quot; src=&quot;bundle.js&quot;&gt;&lt;/script&gt;</code></li>
+</ul>
+</li>
+<li>编译js</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">webpack src/js/entry.js dist/bundle.js</span><br></pre></td></tr></table></figure>
+<h1 id="添加js-json文件"><a href="#添加js-json文件" class="headerlink" title="添加js/json文件"></a>添加js/json文件</h1><ul>
+<li><p>创建第二个js: src/js/math.js</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">square</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x * x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">cube</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x * x * x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建json文件: src/json/data.json</p>
+  <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"Tom"</span>,</span><br><span class="line">  <span class="attr">"age"</span>: <span class="number">12</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更新入口js : entry.js</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;cube&#125; <span class="keyword">from</span> <span class="string">'./math'</span></span><br><span class="line"><span class="keyword">import</span> data <span class="keyword">from</span> <span class="string">'../json/data.json'</span></span><br><span class="line"><span class="comment">//注意data会自动被转换为原生的js对象或者数组</span></span><br><span class="line"><span class="built_in">document</span>.write(<span class="string">"entry.js is work &lt;br/&gt;"</span>);</span><br><span class="line"><span class="built_in">document</span>.write(cube(<span class="number">2</span>) + <span class="string">'&lt;br/&gt;'</span>);</span><br><span class="line"><span class="built_in">document</span>.write(<span class="built_in">JSON</span>.stringify(data) + <span class="string">'&lt;br/&gt;'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译js:</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">webpack src/js/entry.js dist/bundle.js</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="使用webpack配置文件"><a href="#使用webpack配置文件" class="headerlink" title="使用webpack配置文件"></a>使用webpack配置文件</h1><ol>
+<li>根目录下创建<code>webpack.config.js</code>文件</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>); <span class="comment">//path内置的模块，用来设置路径。</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: <span class="string">'./src/js/entry.js'</span>,   <span class="comment">// 入口文件</span></span><br><span class="line">  output: &#123;                     <span class="comment">// 输出配置</span></span><br><span class="line">  	filename: <span class="string">'bundle.js'</span>,      <span class="comment">// 输出文件名</span></span><br><span class="line">  	path: path.resolve(__dirname, <span class="string">'dist'</span>)   <span class="comment">//输出文件路径配置</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="配置npm命令package-json"><a href="#配置npm命令package-json" class="headerlink" title="配置npm命令package.json"></a>配置npm命令<code>package.json</code></h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"scripts": &#123;</span><br><span class="line">      "build": "webpack"</span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure>
+<h2 id="打包应用"><a href="#打包应用" class="headerlink" title="打包应用"></a>打包应用</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run build</span><br></pre></td></tr></table></figure>
+<h1 id="打包css和图片文件"><a href="#打包css和图片文件" class="headerlink" title="打包css和图片文件"></a>打包css和图片文件</h1><ul>
+<li>安装样式的<code>loader</code></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install css-loader style-loader --save-dev</span><br><span class="line">npm install file-loader url-loader --save-dev</span><br><span class="line"><span class="meta">#</span>补充：url-loader是对象file-loader的上层封装，使用时需配合file-loader使用。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>大图无法打包到entry.js文件中，index.html不在生成资源目录下。<br>页面加载图片会在所在目录位置查找，导致页面加载图片时候大图路径无法找到<br>解决办法：</p>
+<pre><code>1. 使用publicPath : &apos;dist/js/&apos; //设置为index.html提供资源的路径,设置完后找所有的资源都会去当前目录下找。
+</code></pre><ol start="2">
+<li>将index.html放在dist/js/也可以解决。</li>
+</ol>
+</blockquote>
+<h1 id="自动编译打包"><a href="#自动编译打包" class="headerlink" title="自动编译打包"></a>自动编译打包</h1><ul>
+<li>利用webpack开发服务期工具<code>webpack-dev-server</code></li>
+<li>下载</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev webpack-dev-server</span><br></pre></td></tr></table></figure>
+<ul>
+<li>webpack.config.js配置</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">devServer:&#123;</span><br><span class="line">	contentBase: <span class="string">'./dist'</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<ul>
+<li>package.json配置</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"start": "webpack-dev-server --open"</span><br></pre></td></tr></table></figure>
+<ul>
+<li>编译打包应用并运行</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure>
+<h1 id="使用webpack插件"><a href="#使用webpack插件" class="headerlink" title="使用webpack插件"></a>使用webpack插件</h1><ul>
+<li>常用的插件<ul>
+<li>使用<code>html-webpack-plugin</code>根据模板html生成引入script的页面</li>
+<li>使用<code>clean-webpack-plugin</code>清除dist文件夹</li>
+</ul>
+</li>
+<li>下载</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm insatll --save-dev html-webpack-plugin clean-webpack-plugin</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>webpack.config.js</code>配置</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>); <span class="comment">//自动生成html文件的插件</span></span><br><span class="line"><span class="keyword">const</span> CleanWebpackPlugin = <span class="built_in">require</span>(<span class="string">'clean-webpack-plugin'</span>); <span class="comment">//清除之前打包的文件   </span></span><br><span class="line">plugins: [</span><br><span class="line">	<span class="keyword">new</span> HtmlWebpackPlugin(&#123;<span class="attr">template</span>: <span class="string">'./index.html'</span>&#125;),</span><br><span class="line">	<span class="keyword">new</span> CleanWebpackPlugin([<span class="string">'dist'</span>]),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>打包运行项目</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm run build</span><br><span class="line">npm start</span><br></pre></td></tr></table></figure>
 
-了解webpack相关什么是webpack
-webpack是一个模块打包器（bundler）
-在webpack看来，前端所有的资源文件（js/json/css/img/less/…）都会作为模块处理
-它将根据模块的依赖关系进行静态分析，生成对应的静态资源
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/17/webpack入门/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
     
@@ -365,145 +442,28 @@ webpack是一个模块打包器（bundler）
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/17/什么是MVVM/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="赵建伟">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/1E285893-13B6-44D9-B44D-4D5DAF4765FE.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/17/什么是MVVM/" itemprop="url">什么是MVVM</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-17T14:21:09+08:00">
-                2019-03-17
-              </time>
+              <a href="/2019/03/17/什么是MVVM/" rel="next" title="什么是MVVM">
+                <i class="fa fa-chevron-left"></i> 什么是MVVM
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-          
-特点：
-针对具有复杂交互逻辑的前端应用
-提供基础的架构抽象
-通过Ajax数据持久化，保证前端用户体验市面上几个主流的MVVM框架
-AngularJS
-reactJS
-VueJS数据驱动数据响应原理数据（model）改变驱动视图（view）自动更新组件化扩展HTML元素，封装可重用的代码组件设计原则
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/17/什么是MVVM/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -513,937 +473,11 @@ VueJS数据驱动数据响应原理数据（model）改变驱动视图（view）
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/17/查看npm全局安装的模块/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="赵建伟">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/1E285893-13B6-44D9-B44D-4D5DAF4765FE.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/17/查看npm全局安装的模块/" itemprop="url">查看npm全局安装的模块</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-17T14:20:48+08:00">
-                2019-03-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          1npm list -g --depth 0
-
-          
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/17/查看npm全局安装的模块/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/17/JS模块化/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="赵建伟">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/1E285893-13B6-44D9-B44D-4D5DAF4765FE.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/17/JS模块化/" itemprop="url">JS模块化</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-17T14:21:36+08:00">
-                2019-01-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-将一个复杂的程序依据一定的规则（规范）封装成几个块（文件），并组合在一起，这就是JS模块化。块的内部数据/实现是私有的，只是向外暴露一些接口（方法）与外部其他模块通信。
-
-模块化规范CommonJS规范说明
-
-每个文件都可当做一个模块
-在服务器端：模块的加载是运行时同步加载的
-在浏览器端：模块需要
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/17/JS模块化/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/17/配置browser—-sync浏览器同步测试工具/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="赵建伟">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/1E285893-13B6-44D9-B44D-4D5DAF4765FE.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/17/配置browser—-sync浏览器同步测试工具/" itemprop="url">ES6笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-17T10:21:55+08:00">
-                2018-07-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-BrowserSync是基于Node.js的, 是一个Node模块， 如果想要使用它，需要先安装一下Node.js
-
-官方网站：https://browsersync.io/中文参考网站：http://browsersync.cn/
-安装全局安装12#简写方式：npm i -D browser-s
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/17/配置browser—-sync浏览器同步测试工具/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/17/ES6笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="赵建伟">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/1E285893-13B6-44D9-B44D-4D5DAF4765FE.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/17/ES6笔记/" itemprop="url">ES6笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-17T14:21:55+08:00">
-                2018-06-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-ECMAScript 6 入门  阮一峰 著
-常用
-
-let和const关键字let作用与var类似，用于声明一个变量
-特点
-在块级作用域有效
-不能重复声明
-不会预处理，不存在变量提升应用：
-循环遍历加监听
-使用let取代var是趋势const作用
-定义一个常量特点
-不能修改（引用值可以改变）
-其
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/06/17/ES6笔记/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/17/node.js入门和使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="赵建伟">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/1E285893-13B6-44D9-B44D-4D5DAF4765FE.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/17/node.js入门和使用/" itemprop="url">Git和GitHub的基本使用</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-17T14:16:49+08:00">
-                2018-05-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          nodejs是什么
-Node.js® is a JavaScript runtime built on Chrome’s V8 JavaScript engine.
-Node.js不是一门语言
-Node.js不是库、不是框架
-是一个JavaScript运行时环境
-简单来讲就是Node.js可以解析和
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/17/node.js入门和使用/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/17/Git和GitHub的基本使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="赵建伟">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/1E285893-13B6-44D9-B44D-4D5DAF4765FE.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/17/Git和GitHub的基本使用/" itemprop="url">Git和GitHub的基本使用</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-17T14:16:49+08:00">
-                2018-03-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          GIT什么是Git
-是一个源代码管理工具
-在一个项目中，凡是由开发人员编写的都算是源代码
-让源代码可以被追溯，主要记录每次变更了什么。
-人为维护比较麻烦
-Git是Linux之父为了维护管理Linux的源代码写的一个工具
-Git 之前很多实用SVN vss tfs hs 。。。
-
-安装Git
-Git命
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/17/Git和GitHub的基本使用/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/17/正则表达式（笔记）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="赵建伟">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/1E285893-13B6-44D9-B44D-4D5DAF4765FE.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/17/正则表达式（笔记）/" itemprop="url">正则表达式（笔记）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-17T11:25:07+08:00">
-                2018-01-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          RegExpw3school: http://www.w3school.com.cn/js/jsref_obj_regexp.asp
-正则表达式的作用：  匹配特殊字符或有特殊搭配原则的字符串的最佳选择。
-两种创建方式
-推荐使用
-1var reg = /abc/;
-
-例：123var reg = /
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/01/17/正则表达式（笔记）/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -1451,6 +485,10 @@ Git命
 
 
           
+
+  
+
+
 
         </div>
         
@@ -1471,8 +509,17 @@ Git命
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1532,6 +579,22 @@ Git命
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#了解webpack相关"><span class="nav-number">1.</span> <span class="nav-text">了解webpack相关</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是webpack"><span class="nav-number">1.1.</span> <span class="nav-text">什么是webpack</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#理解loader"><span class="nav-number">1.1.1.</span> <span class="nav-text">理解loader</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置文件（默认）"><span class="nav-number">1.1.2.</span> <span class="nav-text">配置文件（默认）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件"><span class="nav-number">1.2.</span> <span class="nav-text">插件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装webpack"><span class="nav-number">2.</span> <span class="nav-text">安装webpack</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译打包应用"><span class="nav-number">3.</span> <span class="nav-text">编译打包应用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加js-json文件"><span class="nav-number">4.</span> <span class="nav-text">添加js/json文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用webpack配置文件"><span class="nav-number">5.</span> <span class="nav-text">使用webpack配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置npm命令package-json"><span class="nav-number">5.1.</span> <span class="nav-text">配置npm命令package.json</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打包应用"><span class="nav-number">5.2.</span> <span class="nav-text">打包应用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#打包css和图片文件"><span class="nav-number">6.</span> <span class="nav-text">打包css和图片文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自动编译打包"><span class="nav-number">7.</span> <span class="nav-text">自动编译打包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用webpack插件"><span class="nav-number">8.</span> <span class="nav-text">使用webpack插件</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1679,6 +742,10 @@ Git命
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
