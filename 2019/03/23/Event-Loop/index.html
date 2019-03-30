@@ -101,9 +101,9 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/27/AaGaE8.jpg">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/27/AaGdUS.jpg">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/27/AaGw4g.md.jpg">
-<meta property="og:image" content="https://imgchr.com/i/AaGYut">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/27/AaGYut.gif">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/27/AaGBCQ.gif">
-<meta property="og:updated_time" content="2019-03-27T03:22:37.320Z">
+<meta property="og:updated_time" content="2019-03-30T08:38:46.142Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Event Loop">
 <meta name="twitter:description" content="一次弄懂Event Loop（彻底解决此类面试问题） 转载自： 一次弄懂Event Loop 作者： 光光同学 出处： 掘金  前言Event Loop即时间循环，是指浏览器或Node的一种解决JavaScript单线程运行时不会阻塞的一种机制，也就是我们经常使用异步的原理。 为什么要弄懂Event Loop 是要增加自己技术的深度，也就是懂的JavaScript的运行机制。 现在前端领域各种技">
@@ -337,7 +337,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-30T16:38:46+08:00">
+                2019-03-30
+              </time>
             
           </span>
 
@@ -374,6 +386,37 @@
 
           
 
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
           
 
           
@@ -440,7 +483,7 @@
 <li>设置进入<code>microtask</code>检查点的标志为false。</li>
 </ol>
 <p>图片理解：</p>
-<p><img src="https://imgchr.com/i/AaGYut" alt="AaGYut.gif](https://s2.ax1x.com/2019/03/27/AaGYut.gif)"></p>
+<p><img src="https://s2.ax1x.com/2019/03/27/AaGYut.gif" alt="AaGYut.gif"></p>
 <p>执行栈在执行完<strong>同步任务</strong>后，查看<strong>执行栈</strong>是否为空，如果执行栈为空，就会执行<code>task</code>（宏任务），每次<strong>宏任务</strong>执行完毕后，检查<strong>微任务</strong>（<code>microTask</code>）队列是否为空，如果<strong>不为空</strong>的话，会按照<strong>先入先出</strong>的规则全部执行完<strong>微任务</strong>（<code>microTask</code>），设置<strong>微任务</strong>（<code>microTask</code>）队列为<code>null</code>，然后再执行<strong>宏任务</strong>，如此循环。</p>
 <h2 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'script start'</span>);</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'setTimeout'</span>);</span><br><span class="line">&#125;,<span class="number">0</span>);</span><br><span class="line"><span class="built_in">Promise</span>.resolve().then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'promise1'</span>);</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'promise2'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'script end'</span>);</span><br></pre></td></tr></table></figure>
 <p>首先我们划分为几个分类：</p>
@@ -480,7 +523,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/javascript运行机制/" rel="tag"># javascript运行机制</a>
+            <a href="/tags/javascript运行机制/" rel="tag"><i class="fa fa-tag"></i> javascript运行机制</a>
           
         </div>
       
@@ -509,6 +552,15 @@
 
       
       
+      <div>
+        
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------ 本文结束------</div>
+    
+</div>
+        
+      </div>
     </footer>
   </div>
   
@@ -677,6 +729,15 @@
   </span>
   <span class="author" itemprop="copyrightHolder">赵建伟</span>
 
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">20.5k</span>
   
 </div>
 
