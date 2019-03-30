@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="angular,">
+  <meta name="keywords" content="javascript运行机制,">
 
 
 
@@ -86,18 +86,28 @@
 
 
 
-<meta name="description" content="何以解忧，唯有暴富">
-<meta name="keywords" content="angular">
+<meta name="description" content="一次弄懂Event Loop（彻底解决此类面试问题） 转载自： 一次弄懂Event Loop 作者： 光光同学 出处： 掘金  前言Event Loop即时间循环，是指浏览器或Node的一种解决JavaScript单线程运行时不会阻塞的一种机制，也就是我们经常使用异步的原理。 为什么要弄懂Event Loop 是要增加自己技术的深度，也就是懂的JavaScript的运行机制。 现在前端领域各种技">
+<meta name="keywords" content="javascript运行机制">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Angular入门和使用">
-<meta property="og:url" content="https://zmonster.club/2018/06/13/Angular入门和使用/index.html">
+<meta property="og:title" content="Event Loop">
+<meta property="og:url" content="https://zmonster.club/2019/03/23/Event-Loop/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="何以解忧，唯有暴富">
+<meta property="og:description" content="一次弄懂Event Loop（彻底解决此类面试问题） 转载自： 一次弄懂Event Loop 作者： 光光同学 出处： 掘金  前言Event Loop即时间循环，是指浏览器或Node的一种解决JavaScript单线程运行时不会阻塞的一种机制，也就是我们经常使用异步的原理。 为什么要弄懂Event Loop 是要增加自己技术的深度，也就是懂的JavaScript的运行机制。 现在前端领域各种技">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-23T08:12:38.717Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/27/AaGtDP.md.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/27/AaGGjI.th.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/27/AaG8gA.th.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/27/AaGNHf.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/27/AaGaE8.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/27/AaGdUS.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/27/AaGw4g.md.jpg">
+<meta property="og:image" content="https://imgchr.com/i/AaGYut">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/27/AaGBCQ.gif">
+<meta property="og:updated_time" content="2019-03-27T03:22:37.320Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Angular入门和使用">
-<meta name="twitter:description" content="何以解忧，唯有暴富">
+<meta name="twitter:title" content="Event Loop">
+<meta name="twitter:description" content="一次弄懂Event Loop（彻底解决此类面试问题） 转载自： 一次弄懂Event Loop 作者： 光光同学 出处： 掘金  前言Event Loop即时间循环，是指浏览器或Node的一种解决JavaScript单线程运行时不会阻塞的一种机制，也就是我们经常使用异步的原理。 为什么要弄懂Event Loop 是要增加自己技术的深度，也就是懂的JavaScript的运行机制。 现在前端领域各种技">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/03/27/AaGtDP.md.jpg">
 
 
 
@@ -131,7 +141,7 @@
 
 
 
-  <title>Angular入门和使用 | 个人博客</title>
+  <title>Event Loop | 个人博客</title>
   
 
 
@@ -292,7 +302,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zmonster.club/2018/06/13/Angular入门和使用/">
+    <link itemprop="mainEntityOfPage" href="https://zmonster.club/2019/03/23/Event-Loop/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="赵建伟">
@@ -309,7 +319,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Angular入门和使用</h1>
+          <h1 class="post-title" itemprop="name headline">Event Loop</h1>
         
 
         <div class="post-meta">
@@ -321,8 +331,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-13T16:04:29+08:00">
-                2018-06-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-23T22:56:27+08:00">
+                2019-03-23
               </time>
             
 
@@ -344,8 +354,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端框架/" itemprop="url" rel="index">
-                    <span itemprop="name">前端框架</span>
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
                   </a>
                 </span>
 
@@ -381,7 +391,79 @@
       
 
       
-        
+        <p><a href="https://imgchr.com/i/AaGtDP" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/03/27/AaGtDP.md.jpg" alt="AaGtDP.md.jpg"></a></p>
+<h1 id="一次弄懂Event-Loop（彻底解决此类面试问题）"><a href="#一次弄懂Event-Loop（彻底解决此类面试问题）" class="headerlink" title="一次弄懂Event Loop（彻底解决此类面试问题）"></a>一次弄懂Event Loop（彻底解决此类面试问题）</h1><blockquote>
+<p>转载自： <a href="https://juejin.im/post/5c3d8956e51d4511dc72c200?utm_source=gold_browser_extension" target="_blank" rel="noopener">一次弄懂Event Loop</a></p>
+<p>作者： 光光同学</p>
+<p>出处： 掘金</p>
+</blockquote>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><code>Event Loop</code>即时间循环，是指浏览器或<code>Node</code>的一种解决<code>JavaScript</code>单线程运行时不会阻塞的一种机制，也就是我们经常使用<strong>异步</strong>的原理。</p>
+<h1 id="为什么要弄懂Event-Loop"><a href="#为什么要弄懂Event-Loop" class="headerlink" title="为什么要弄懂Event Loop"></a>为什么要弄懂Event Loop</h1><ul>
+<li>是要增加自己技术的深度，也就是懂的<code>JavaScript</code>的运行机制。</li>
+<li>现在前端领域各种技术层出不穷，掌握底层原理可以让自己以不变应万变。</li>
+</ul>
+<h1 id="堆、栈、队列"><a href="#堆、栈、队列" class="headerlink" title="堆、栈、队列"></a>堆、栈、队列</h1><p><a href="https://imgchr.com/i/AaGGjI" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/03/27/AaGGjI.th.jpg" alt="AaGGjI.th.jpg"></a></p>
+<h1 id="堆（Heep）"><a href="#堆（Heep）" class="headerlink" title="堆（Heep）"></a>堆（Heep）</h1><p><strong>堆</strong>是一种数据结构，是利用完全二叉树维护的一组数据，<strong>堆</strong>分为两种，一种为<strong>最大堆</strong>，一种为<strong>最小堆</strong>，将根节点最大的<strong>堆</strong>叫做<strong>最大堆</strong>或<strong>大根堆</strong>，根节点<strong>最小</strong>的<strong>堆</strong>叫做<strong>最小堆</strong>或<strong>小根堆</strong>。</p>
+<p><strong>堆</strong>是<strong>线性数据结构</strong>，相当于<strong>一堆数组</strong>，有唯一后继。</p>
+<p>如最大堆</p>
+<p><a href="https://imgchr.com/i/AaG8gA" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/03/27/AaG8gA.th.jpg" alt="AaG8gA.th.jpg"></a></p>
+<h1 id="栈（Stack）"><a href="#栈（Stack）" class="headerlink" title="栈（Stack）"></a>栈（Stack）</h1><p><strong>栈</strong>在计算机科学中是限定仅在<strong>表尾</strong>进行<strong>插入</strong>或<strong>操作</strong>的线性表。<strong>栈</strong>是一种数据结构，它按照<strong>后进先出</strong>的原则存储数据，<strong>先进入</strong>的数据被压入<strong>栈底</strong>，<strong>最后的数据</strong>在<strong>栈顶，</strong>需要读数据的时候从<strong>栈顶</strong>开始<strong>弹出数据</strong>。</p>
+<p><strong>栈</strong>是只能在<strong>某一端插入</strong>和<strong>删除</strong>的<strong>特殊线性表</strong>。</p>
+<p><img src="https://s2.ax1x.com/2019/03/27/AaGNHf.jpg" alt="AaGNHf.jpg"></p>
+<h1 id="队列（Queue）"><a href="#队列（Queue）" class="headerlink" title="队列（Queue）"></a>队列（Queue）</h1><p>特殊之处在于它只允许在表的<strong>前端</strong>（<code>front</code>）进行<strong>删除</strong>操作，而在表的<strong>后端</strong>（<code>rear</code>）进行<strong>插入</strong>操作，和<strong>栈</strong>一样，<strong>队列</strong>是一种<strong>操作受限制的线性表</strong>。</p>
+<p>进行<strong>插入</strong>操作的端称为<strong>队尾</strong>，进行<strong>删除</strong>操作的端称为<strong>队头</strong>。<strong>队列</strong>中没有元素是，称为<strong>空队列</strong>。</p>
+<p><strong>队列</strong>的数据元素又称为<strong>队列元素</strong>。在队列中插入一个队列元素称为<strong>入队</strong>，从队列中删除一个队列元素称为<strong>出队</strong>。因为<strong>队列</strong>只允许在<strong>一端插入</strong>，在<strong>另一端删除</strong>，所以只有<strong>最早</strong>进入<strong>队列</strong>的<strong>元素</strong>才能<strong>最先</strong>从队列中<strong>删除</strong>，故<strong>队列</strong>又称为<strong>先进先出</strong>（<code>FIFO-first in first out</code>）</p>
+<p><img src="https://s2.ax1x.com/2019/03/27/AaGaE8.jpg" alt="AaGaE8.jpg"></p>
+<h1 id="Event-Loop"><a href="#Event-Loop" class="headerlink" title="Event Loop"></a>Event Loop</h1><p>在<code>JavaScript</code>中，人物被分为两种，一种宏任务（<code>MacroTask</code>）也叫<code>Task</code>，一种叫微任务（<code>MicroTask</code>）。</p>
+<h1 id="MacroTask（宏任务）"><a href="#MacroTask（宏任务）" class="headerlink" title="MacroTask（宏任务）"></a>MacroTask（宏任务）</h1><p><code>script</code>全部代码、<code>setTimeout</code>、<code>setInterval</code>、<code>setTmmediate</code>（浏览器暂时不支持，只有IE10支持）、<code>I/O</code>、<code>UI Rendering</code>。</p>
+<h1 id="MicroTask（微任务）"><a href="#MicroTask（微任务）" class="headerlink" title="MicroTask（微任务）"></a>MicroTask（微任务）</h1><p><code>Process.nextTick（Node独有）</code>、<code>Promise</code>、<code>Object.observe（废弃）</code>、<code>MutationObserver</code>（<a href="http://javascript.ruanyifeng.com/dom/mutationobserver.html" target="_blank" rel="noopener">具体使用方法查看这里</a>）</p>
+<h1 id="浏览器中的Event-Loop"><a href="#浏览器中的Event-Loop" class="headerlink" title="浏览器中的Event Loop"></a>浏览器中的Event Loop</h1><p><code>JavaScript</code>有一个<code>main thread</code>主线程和<code>call-stack</code>调用栈（执行栈），所有的任务都会被放到调用栈等待主线程执行。</p>
+<h1 id="js调用栈"><a href="#js调用栈" class="headerlink" title="js调用栈"></a>js调用栈</h1><p>js调用栈采用的是后进先出的规则，当函数执行的时候，会被添加到栈的顶部，当执行栈执行完成后，就会从栈顶移除，知道站内被清空。</p>
+<h1 id="同步任务和异步任务"><a href="#同步任务和异步任务" class="headerlink" title="同步任务和异步任务"></a>同步任务和异步任务</h1><p><code>JavaScript</code>单线程任务被分为<strong>同步任务</strong>和<strong>异步任务</strong>，同步任务会在调用栈中按照顺序等待主线程依次执行，异步任务会在异步任务有了结果之后，将注册的回调函数放入任务队列中等待主线程空闲的时候（调用栈被清空），被读取到栈内等待主线程的执行。</p>
+<p><img src="https://s2.ax1x.com/2019/03/27/AaGdUS.jpg" alt="AaGdUS.jpg"></p>
+<p>任务队列<code>Task Queue</code>，即队列，是一种先进先出的的一种数据结构。</p>
+<p><a href="https://imgchr.com/i/AaGw4g" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/03/27/AaGw4g.md.jpg" alt="AaGw4g.md.jpg"></a>    </p>
+<h1 id="事件循环的进程模型"><a href="#事件循环的进程模型" class="headerlink" title="事件循环的进程模型"></a>事件循环的进程模型</h1><ol>
+<li>选择当前要执行的任务队列，选择任务队列中最先进入的任务，如果任务队列为空即<code>null</code>，则执行跳转到微任务（<code>MicroTask</code>)的执行步骤。</li>
+<li>将事件循环中的任务设置为已选择任务。</li>
+<li>执行任务。</li>
+<li>将事件循环中当前运行任务设置为<code>null</code></li>
+<li>将已经运行完成的任务从任务队列中删除。</li>
+<li><code>microtasks</code>步骤： 进入<code>microtask</code>检查点</li>
+<li>更新界面渲染。</li>
+<li>返回第一步。</li>
+</ol>
+<h1 id="执行进入microtask检查点时，用户代理会执行以下步骤："><a href="#执行进入microtask检查点时，用户代理会执行以下步骤：" class="headerlink" title="执行进入microtask检查点时，用户代理会执行以下步骤："></a>执行进入microtask检查点时，用户代理会执行以下步骤：</h1><ol>
+<li>设置<code>microtask</code>检查点标志为<code>true</code>。</li>
+<li>当事件循环<code>microtask</code>执行不为空时： 选择一个最先进入的<code>microtask</code>队列的<code>microtask</code>，将事件循环的<code>microtask</code>为<code>null</code>，移出<code>microtask</code>中的<code>microtask</code>。</li>
+<li>清理IndexDB事务</li>
+<li>设置进入<code>microtask</code>检查点的标志为false。</li>
+</ol>
+<p>图片理解：</p>
+<p><img src="https://imgchr.com/i/AaGYut" alt="AaGYut.gif](https://s2.ax1x.com/2019/03/27/AaGYut.gif)"></p>
+<p>执行栈在执行完<strong>同步任务</strong>后，查看<strong>执行栈</strong>是否为空，如果执行栈为空，就会执行<code>task</code>（宏任务），每次<strong>宏任务</strong>执行完毕后，检查<strong>微任务</strong>（<code>microTask</code>）队列是否为空，如果<strong>不为空</strong>的话，会按照<strong>先入先出</strong>的规则全部执行完<strong>微任务</strong>（<code>microTask</code>），设置<strong>微任务</strong>（<code>microTask</code>）队列为<code>null</code>，然后再执行<strong>宏任务</strong>，如此循环。</p>
+<h2 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'script start'</span>);</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'setTimeout'</span>);</span><br><span class="line">&#125;,<span class="number">0</span>);</span><br><span class="line"><span class="built_in">Promise</span>.resolve().then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'promise1'</span>);</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'promise2'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'script end'</span>);</span><br></pre></td></tr></table></figure>
+<p>首先我们划分为几个分类：</p>
+<ol>
+<li><p>第一次执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Task: run script、 setTimeout callback</span><br><span class="line">Microtasks: Promise then</span><br><span class="line">JS stack: script</span><br><span class="line">Log: script start、script end。</span><br></pre></td></tr></table></figure>
+<p>执行同步代码，将宏任务（<code>Task</code>）和微任务（<code>Microtasks</code>）划分到各自队列中。</p>
+</li>
+<li><p>第二次执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Task: run script、setTimeout callback</span><br><span class="line">Microtasks: Promise2 then</span><br><span class="line">JS stack: Promise2 callback</span><br><span class="line">Log: script start、script end、promise1、promise2</span><br></pre></td></tr></table></figure>
+<p>执行宏任务后，检测到微任务（<code>Microtasks</code>）队列中不为空，执行<code>promise1</code>，执行完成<code>promise1</code>后，调用<code>promise2.then</code>，放入微任务（<code>Microtasks</code>）队列中，在执行<code>promise2.then</code>。</p>
+</li>
+<li><p>第三次执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Tasks: setTimeout callback</span><br><span class="line">Microtasks: </span><br><span class="line">JS stack: setTimeout callback</span><br><span class="line">Log: scriptstart、script end、promise1、promise2、setTimeout</span><br></pre></td></tr></table></figure>
+<p>当微任务（<code>Microtasks</code>）队列中为空时，执行宏任务（<code>tasks</code>），执行<code>setTimeout callback</code>，打印日志。</p>
+</li>
+<li><p>第四次执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Tasks: setTimeout callback</span><br><span class="line">Microtasks:</span><br><span class="line">JS stack:</span><br><span class="line">Log: script start、script end、promise1、promise2、setTimeout</span><br></pre></td></tr></table></figure>
+<p>清空<code>Tasks</code>队列和<code>JS stack</code></p>
+<p><img src="https://s2.ax1x.com/2019/03/27/AaGBCQ.gif" alt="AaGBCQ.gif"></p>
+</li>
+</ol>
+
       
     </div>
     
@@ -398,7 +480,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/angular/" rel="tag"># angular</a>
+            <a href="/tags/javascript运行机制/" rel="tag"># javascript运行机制</a>
           
         </div>
       
@@ -411,8 +493,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/17/node.js入门和使用/" rel="next" title="node.js入门和使用">
-                <i class="fa fa-chevron-left"></i> node.js入门和使用
+              <a href="/2019/03/23/前端面试题收集/" rel="next" title="前端面试题收集">
+                <i class="fa fa-chevron-left"></i> 前端面试题收集
               </a>
             
           </div>
@@ -420,10 +502,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/17/ES6笔记/" rel="prev" title="ES6笔记">
-                ES6笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -475,8 +553,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -554,6 +641,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一次弄懂Event-Loop（彻底解决此类面试问题）"><span class="nav-number">1.</span> <span class="nav-text">一次弄懂Event Loop（彻底解决此类面试问题）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">2.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么要弄懂Event-Loop"><span class="nav-number">3.</span> <span class="nav-text">为什么要弄懂Event Loop</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#堆、栈、队列"><span class="nav-number">4.</span> <span class="nav-text">堆、栈、队列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#堆（Heep）"><span class="nav-number">5.</span> <span class="nav-text">堆（Heep）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#栈（Stack）"><span class="nav-number">6.</span> <span class="nav-text">栈（Stack）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#队列（Queue）"><span class="nav-number">7.</span> <span class="nav-text">队列（Queue）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Event-Loop"><span class="nav-number">8.</span> <span class="nav-text">Event Loop</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MacroTask（宏任务）"><span class="nav-number">9.</span> <span class="nav-text">MacroTask（宏任务）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MicroTask（微任务）"><span class="nav-number">10.</span> <span class="nav-text">MicroTask（微任务）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#浏览器中的Event-Loop"><span class="nav-number">11.</span> <span class="nav-text">浏览器中的Event Loop</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#js调用栈"><span class="nav-number">12.</span> <span class="nav-text">js调用栈</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#同步任务和异步任务"><span class="nav-number">13.</span> <span class="nav-text">同步任务和异步任务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#事件循环的进程模型"><span class="nav-number">14.</span> <span class="nav-text">事件循环的进程模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#执行进入microtask检查点时，用户代理会执行以下步骤："><span class="nav-number">15.</span> <span class="nav-text">执行进入microtask检查点时，用户代理会执行以下步骤：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#例子："><span class="nav-number">15.1.</span> <span class="nav-text">例子：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
