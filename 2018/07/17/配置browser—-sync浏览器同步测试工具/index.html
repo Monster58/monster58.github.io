@@ -93,13 +93,13 @@
 <meta property="og:site_name" content="个人博客">
 <meta property="og:description" content="BrowserSync是基于Node.js的, 是一个Node模块， 如果想要使用它，需要先安装一下Node.js  官方网站：https://browsersync.io/中文参考网站：http://browsersync.cn/ 安装全局安装12#简写方式：npm i -D browser-syncnpm install -g browser-sync 在项目中安装1npm install">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190221192904916.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vbmVzdGVyXw==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190221193833655.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vbmVzdGVyXw==,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-03-23T07:49:36.804Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/01/AsyclQ.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/01/Asy6Sg.png">
+<meta property="og:updated_time" content="2019-04-01T07:25:49.358Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="配置browser-sync浏览器同步测试工具">
 <meta name="twitter:description" content="BrowserSync是基于Node.js的, 是一个Node模块， 如果想要使用它，需要先安装一下Node.js  官方网站：https://browsersync.io/中文参考网站：http://browsersync.cn/ 安装全局安装12#简写方式：npm i -D browser-syncnpm install -g browser-sync 在项目中安装1npm install">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190221192904916.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vbmVzdGVyXw==,size_16,color_FFFFFF,t_70">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/04/01/AsyclQ.png">
 
 
 
@@ -339,8 +339,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-23T15:49:36+08:00">
-                2019-03-23
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-01T15:25:49+08:00">
+                2019-04-01
               </time>
             
           </span>
@@ -389,7 +389,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  137
+                  138
                 </span>
               
 
@@ -432,8 +432,9 @@
 <p>官方网站：<a href="https://browsersync.io/" target="_blank" rel="noopener">https://browsersync.io/</a><br>中文参考网站：<a href="http://browsersync.cn/" target="_blank" rel="noopener">http://browsersync.cn/</a></p>
 <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="全局安装"><a href="#全局安装" class="headerlink" title="全局安装"></a>全局安装</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>简写方式：npm i -D browser-sync</span><br><span class="line">npm install -g browser-sync</span><br></pre></td></tr></table></figure>
 <h2 id="在项目中安装"><a href="#在项目中安装" class="headerlink" title="在项目中安装"></a>在项目中安装</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev browser-sync</span><br></pre></td></tr></table></figure>
-<h1 id="在项目中配置scripts"><a href="#在项目中配置scripts" class="headerlink" title="在项目中配置scripts"></a>在项目中配置scripts</h1><p><img src="https://img-blog.csdnimg.cn/20190221192904916.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vbmVzdGVyXw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>在项目的包描述文件中插入以下代码<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">"scripts":&#123;</span><br><span class="line">  	"dev": "browser-sync start --server --files \"*.html, css/*.css, js/\"",</span><br><span class="line">  	"start": "npm run dev"</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
-<h1 id="启动项目"><a href="#启动项目" class="headerlink" title="启动项目"></a>启动项目</h1><p><img src="https://img-blog.csdnimg.cn/20190221193833655.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vbmVzdGVyXw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>在命令行中输入以下，即可启动项目</p>
+<h1 id="在项目中配置scripts"><a href="#在项目中配置scripts" class="headerlink" title="在项目中配置scripts"></a>在项目中配置scripts</h1><p><img src="https://s2.ax1x.com/2019/04/01/AsyclQ.png" alt="AsyclQ.png"><br>在项目的包描述文件中插入以下代码</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">"scripts":&#123;</span><br><span class="line">  	"dev": "browser-sync start --server --files \"*.html, css/*.css, js/\"",</span><br><span class="line">  	"start": "npm run dev"</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="启动项目"><a href="#启动项目" class="headerlink" title="启动项目"></a>启动项目</h1><p><img src="https://s2.ax1x.com/2019/04/01/Asy6Sg.png" alt="Asy6Sg.png"><br>在命令行中输入以下，即可启动项目</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure>
 
       
@@ -559,7 +560,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -664,7 +665,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">20.5k</span>
+    <span title="Site words total count">21k</span>
   
 </div>
 
