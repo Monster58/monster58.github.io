@@ -478,7 +478,7 @@
 <ol start="5">
 <li>引入require.js并指定js主文件的入口</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"js/libs/require.js"</span> data-main=<span class="string">"js/main.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"js/libs/require.js"</span> data-main=<span class="string">"js/main.js"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <h2 id="CMD（了解）"><a href="#CMD（了解）" class="headerlink" title="CMD（了解）"></a>CMD（了解）</h2><h3 id="规范-2"><a href="#规范-2" class="headerlink" title="规范"></a>规范</h3><h4 id="说明-2"><a href="#说明-2" class="headerlink" title="说明"></a>说明</h4><ul>
 <li>Common Module Definition（通用模块定义）</li>
 <li><a href="https://github.com/seajs/seajs/issues/242" target="_blank" rel="noopener">https://github.com/seajs/seajs/issues/242</a></li>
@@ -491,7 +491,7 @@
 <li>Sea.js</li>
 <li><a href="http://www.zhangxinxu.com/sp/seajs" target="_blank" rel="noopener">http://www.zhangxinxu.com/sp/seajs</a></li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--</span><br><span class="line">使用seajs:</span><br><span class="line">  <span class="number">1.</span> 引入sea.js库</span><br><span class="line">  <span class="number">2.</span> 如何定义导出模块 :</span><br><span class="line">    define()</span><br><span class="line">    exports</span><br><span class="line">    <span class="built_in">module</span>.exports</span><br><span class="line">  <span class="number">3.</span> 如何依赖模块:</span><br><span class="line">    <span class="built_in">require</span>()</span><br><span class="line">  <span class="number">4.</span> 如何使用模块:</span><br><span class="line">    seajs.use()</span><br><span class="line">--&gt;</span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"js/libs/sea.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">  seajs.use(<span class="string">'./js/modules/main'</span>)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--</span><br><span class="line">使用seajs:</span><br><span class="line">  <span class="number">1.</span> 引入sea.js库</span><br><span class="line">  <span class="number">2.</span> 如何定义导出模块 :</span><br><span class="line">    define()</span><br><span class="line">    exports</span><br><span class="line">    <span class="built_in">module</span>.exports</span><br><span class="line">  <span class="number">3.</span> 如何依赖模块:</span><br><span class="line">    <span class="built_in">require</span>()</span><br><span class="line">  <span class="number">4.</span> 如何使用模块:</span><br><span class="line">    seajs.use()</span><br><span class="line">--&gt;</span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"js/libs/sea.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">  seajs.use(<span class="string">'./js/modules/main'</span>)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="ES6"><a href="#ES6" class="headerlink" title="ES6*"></a>ES6*</h2><h3 id="规范-3"><a href="#规范-3" class="headerlink" title="规范"></a>规范</h3><h4 id="说明-3"><a href="#说明-3" class="headerlink" title="说明"></a>说明</h4><ul>
 <li><a href="http://es6.ruanyifeng.com/#docs/module" target="_blank" rel="noopener">http://es6.ruanyifeng.com/#docs/module</a></li>
 <li>依赖模块需要编译打包处理    <h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4></li>
@@ -541,7 +541,7 @@
 <ol start="6">
 <li>页面中引入测试</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"js/lib/bundle.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"js/lib/bundle.js"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <ol start="7">
 <li>引入第三方模块(jQuery)</li>
 </ol>
@@ -779,7 +779,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">21k</span>
+    <span title="Site words total count">21.1k</span>
   
 </div>
 
