@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="个人博客">
 <meta property="og:description" content="webpack中文文档webpack官网  了解webpack相关什么是webpack webpack是一个模块打包器（bundler） 在webpack看来，前端所有的资源文件（js/json/css/img/less/…）都会作为模块处理 它将根据模块的依赖关系进行静态分析，生成对应的静态资源理解loader webpack本身只能加载JS/JSON模块，如果要加载其他类型的文件（模块），就">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-23T07:50:12.476Z">
+<meta property="og:updated_time" content="2019-06-18T08:53:28.370Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack入门">
 <meta name="twitter:description" content="webpack中文文档webpack官网  了解webpack相关什么是webpack webpack是一个模块打包器（bundler） 在webpack看来，前端所有的资源文件（js/json/css/img/less/…）都会作为模块处理 它将根据模块的依赖关系进行静态分析，生成对应的静态资源理解loader webpack本身只能加载JS/JSON模块，如果要加载其他类型的文件（模块），就">
@@ -337,8 +337,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-23T15:50:12+08:00">
-                2019-03-23
+              <time title="更新于" itemprop="dateModified" datetime="2019-06-18T16:53:28+08:00">
+                2019-06-18
               </time>
             
           </span>
@@ -387,7 +387,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  944
+                  1.3k
                 </span>
               
 
@@ -403,7 +403,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  5
                 </span>
               
             </div>
@@ -481,11 +481,26 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install css-loader style-loader --save-dev</span><br><span class="line">npm install file-loader url-loader --save-dev</span><br><span class="line"><span class="meta">#</span>补充：url-loader是对象file-loader的上层封装，使用时需配合file-loader使用。</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>大图无法打包到entry.js文件中，index.html不在生成资源目录下。<br>页面加载图片会在所在目录位置查找，导致页面加载图片时候大图路径无法找到<br>解决办法：</p>
-<pre><code>1. 使用publicPath : &apos;dist/js/&apos; //设置为index.html提供资源的路径,设置完后找所有的资源都会去当前目录下找。
-</code></pre><ol start="2">
-<li>将index.html放在dist/js/也可以解决。</li>
+<ol>
+<li>使用publicPath : <code>dist/js/&#39;</code>//设置为<code>index.html</code>提供资源的路径,设置完后找所有的资源都会去当前目录下找。</li>
+</ol>
+<ol start="2">
+<li>将<code>index.html</code>放在<code>dist/js/</code>也可以解决。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123; <span class="comment">//用来配置第三方loader模块的</span></span><br><span class="line">    rules: &#123; <span class="comment">//文件的匹配规则</span></span><br><span class="line">        &#123;<span class="attr">test</span>: <span class="regexp">/\.css$/</span>, <span class="attr">use</span>: [<span class="string">'style-loader'</span>, <span class="string">'css-loader'</span>]&#125;<span class="comment">//处理css文件的规则</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 </blockquote>
+<p>注意： <code>use</code>表示使用哪些模块来处理<code>test</code>所匹配到的文件；<code>use</code>中相关<code>loader</code>模块的调用顺序 是从后向前调用的；</p>
+<h2 id="url-loader的使用"><a href="#url-loader的使用" class="headerlink" title="url-loader的使用"></a>url-loader的使用</h2><blockquote>
+<p>webpack无法处理css文件中的url地址，不管是图片还是字体库；</p>
+<p>url-loader默认会把图片转为base64格式，并且为避免图片重名会对对图片进行重命名</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">test</span>: <span class="regexp">/\.(jpg|png|gif|bmp|jpeg)$/</span>, <span class="attr">use</span>: <span class="string">'url-loader?limit=7631&amp;name=[hash:8]-[name].[ext]'</span>&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>以浏览器地址栏传参的形式为url-loader传入参数，<code>limit</code>给定的值是图片的大小，单位是字节<code>byte</code>，如果引用的图片大于或等于给定的<code>limit</code>值，则不会转为<code>base64</code>格式的字符串，如果图片小于给定的<code>limit</code>值，则会转为<code>base64</code>字符串；</li>
+<li><code>name</code>设定文件名的格式，<code>[hash：8]</code>为hash值的前八位，<code>-</code>表示以<code>-</code>进行拼接,<code>[name]</code>表示原名字，<code>[ext]</code>表示已原后缀名结尾；</li>
+</ul>
+<h1 id="打包less"><a href="#打包less" class="headerlink" title="打包less"></a>打包less</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i less less-loader -D</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">test</span>: <span class="regexp">/\.less/</span>, <span class="attr">use</span>: [<span class="string">'style-loader'</span>, <span class="string">'css-loader'</span>, <span class="string">'less-loader'</span>]&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="自动编译打包"><a href="#自动编译打包" class="headerlink" title="自动编译打包"></a>自动编译打包</h1><ul>
 <li>利用webpack开发服务期工具<code>webpack-dev-server</code></li>
 <li>下载</li>
@@ -503,7 +518,10 @@
 <li>编译打包应用并运行</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure>
-<h1 id="使用webpack插件"><a href="#使用webpack插件" class="headerlink" title="使用webpack插件"></a>使用webpack插件</h1><ul>
+<h1 id="使用webpack插件"><a href="#使用webpack插件" class="headerlink" title="使用webpack插件"></a>使用webpack插件</h1><blockquote>
+<p>由于使用<code>--contentBase</code>指令的过程比较繁琐，需要指定启动的目录，同时还需要修改<code>index.html中的script标签的src属性</code>，所以推荐使用<code>html-webpack-plugin</code>插件配置启动页面；</p>
+</blockquote>
+<ul>
 <li>常用的插件<ul>
 <li>使用<code>html-webpack-plugin</code>根据模板html生成引入script的页面</li>
 <li>使用<code>clean-webpack-plugin</code>清除dist文件夹</li>
@@ -511,7 +529,7 @@
 </li>
 <li>下载</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm insatll --save-dev html-webpack-plugin clean-webpack-plugin</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev html-webpack-plugin clean-webpack-plugin</span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>webpack.config.js</code>配置</li>
 </ul>
@@ -560,8 +578,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/23/前端面试题收集/" rel="prev" title="前端面试题收集">
-                前端面试题收集 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/18/MintUI的使用/" rel="prev" title="MintUI的使用">
+                MintUI的使用 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -650,7 +668,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -672,7 +690,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -721,7 +739,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#了解webpack相关"><span class="nav-number">1.</span> <span class="nav-text">了解webpack相关</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是webpack"><span class="nav-number">1.1.</span> <span class="nav-text">什么是webpack</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#理解loader"><span class="nav-number">1.1.1.</span> <span class="nav-text">理解loader</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置文件（默认）"><span class="nav-number">1.1.2.</span> <span class="nav-text">配置文件（默认）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件"><span class="nav-number">1.2.</span> <span class="nav-text">插件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装webpack"><span class="nav-number">2.</span> <span class="nav-text">安装webpack</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译打包应用"><span class="nav-number">3.</span> <span class="nav-text">编译打包应用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加js-json文件"><span class="nav-number">4.</span> <span class="nav-text">添加js/json文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用webpack配置文件"><span class="nav-number">5.</span> <span class="nav-text">使用webpack配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置npm命令package-json"><span class="nav-number">5.1.</span> <span class="nav-text">配置npm命令package.json</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打包应用"><span class="nav-number">5.2.</span> <span class="nav-text">打包应用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#打包css和图片文件"><span class="nav-number">6.</span> <span class="nav-text">打包css和图片文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自动编译打包"><span class="nav-number">7.</span> <span class="nav-text">自动编译打包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用webpack插件"><span class="nav-number">8.</span> <span class="nav-text">使用webpack插件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#了解webpack相关"><span class="nav-number">1.</span> <span class="nav-text">了解webpack相关</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是webpack"><span class="nav-number">1.1.</span> <span class="nav-text">什么是webpack</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#理解loader"><span class="nav-number">1.1.1.</span> <span class="nav-text">理解loader</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置文件（默认）"><span class="nav-number">1.1.2.</span> <span class="nav-text">配置文件（默认）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件"><span class="nav-number">1.2.</span> <span class="nav-text">插件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装webpack"><span class="nav-number">2.</span> <span class="nav-text">安装webpack</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译打包应用"><span class="nav-number">3.</span> <span class="nav-text">编译打包应用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加js-json文件"><span class="nav-number">4.</span> <span class="nav-text">添加js/json文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用webpack配置文件"><span class="nav-number">5.</span> <span class="nav-text">使用webpack配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置npm命令package-json"><span class="nav-number">5.1.</span> <span class="nav-text">配置npm命令package.json</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打包应用"><span class="nav-number">5.2.</span> <span class="nav-text">打包应用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#打包css和图片文件"><span class="nav-number">6.</span> <span class="nav-text">打包css和图片文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#url-loader的使用"><span class="nav-number">6.1.</span> <span class="nav-text">url-loader的使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#打包less"><span class="nav-number">7.</span> <span class="nav-text">打包less</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自动编译打包"><span class="nav-number">8.</span> <span class="nav-text">自动编译打包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用webpack插件"><span class="nav-number">9.</span> <span class="nav-text">使用webpack插件</span></a></li></ol></div>
             
 
           </div>
@@ -755,7 +773,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">21.1k</span>
+    <span title="Site words total count">30.7k</span>
   
 </div>
 

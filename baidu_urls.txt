@@ -1,9 +1,11 @@
 https://zmonster.club/2019/05/15/hexo常用命令/
 https://zmonster.club/2019/03/23/Event-Loop/
 https://zmonster.club/2019/03/23/前端面试题收集/
+https://zmonster.club/2019/03/18/MintUI的使用/
 https://zmonster.club/2019/03/17/webpack入门/
 https://zmonster.club/2019/03/17/什么是MVVM/
 https://zmonster.club/2019/03/17/查看npm全局安装的模块/
+https://zmonster.club/2019/03/02/nrm的安装使用/
 https://zmonster.club/2019/01/19/VueJS笔记/
 https://zmonster.club/2019/01/17/JS模块化/
 https://zmonster.club/2018/07/17/配置browser—-sync浏览器同步测试工具/

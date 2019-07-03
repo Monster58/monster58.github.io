@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="个人博客">
 <meta property="og:description" content="将一个复杂的程序依据一定的规则（规范）封装成几个块（文件），并组合在一起，这就是JS模块化。块的内部数据/实现是私有的，只是向外暴露一些接口（方法）与外部其他模块通信。  模块化规范CommonJS规范说明  每个文件都可当做一个模块 在服务器端：模块的加载是运行时同步加载的 在浏览器端：模块需要提前编译打包处理基本语法暴露模块 module.exports = value exports.xx">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-23T07:50:32.499Z">
+<meta property="og:updated_time" content="2019-06-17T09:59:14.382Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS模块化">
 <meta name="twitter:description" content="将一个复杂的程序依据一定的规则（规范）封装成几个块（文件），并组合在一起，这就是JS模块化。块的内部数据/实现是私有的，只是向外暴露一些接口（方法）与外部其他模块通信。  模块化规范CommonJS规范说明  每个文件都可当做一个模块 在服务器端：模块的加载是运行时同步加载的 在浏览器端：模块需要提前编译打包处理基本语法暴露模块 module.exports = value exports.xx">
@@ -336,8 +336,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-23T15:50:32+08:00">
-                2019-03-23
+              <time title="更新于" itemprop="dateModified" datetime="2019-06-17T17:59:14+08:00">
+                2019-06-17
               </time>
             
           </span>
@@ -386,7 +386,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.2k
+                  1.4k
                 </span>
               
 
@@ -402,7 +402,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5
+                  6
                 </span>
               
             </div>
@@ -432,9 +432,13 @@
 <li>在服务器端：模块的加载是运行时同步加载的</li>
 <li>在浏览器端：模块需要提前编译打包处理<h4 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h4><h5 id="暴露模块"><a href="#暴露模块" class="headerlink" title="暴露模块"></a>暴露模块</h5></li>
 <li><code>module.exports = value</code></li>
-<li><code>exports.xxx = value</code><h5 id="引入模块"><a href="#引入模块" class="headerlink" title="引入模块"></a>引入模块</h5><code>require(xxx)</code><h6 id="第三方模块、系统模块"><a href="#第三方模块、系统模块" class="headerlink" title="第三方模块、系统模块"></a>第三方模块、系统模块</h6>xxx为模块名<h6 id="自定义模块"><a href="#自定义模块" class="headerlink" title="自定义模块"></a>自定义模块</h6>xxx为模块文件路径<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><h4 id="服务端实现"><a href="#服务端实现" class="headerlink" title="服务端实现"></a>服务端实现</h4><code>Node.js</code><h4 id="浏览器端实现"><a href="#浏览器端实现" class="headerlink" title="浏览器端实现"></a>浏览器端实现</h4><code>Browserify</code><br>也称为CommonJS的浏览器端的打包工具<h5 id="Browserify模块化使用教程"><a href="#Browserify模块化使用教程" class="headerlink" title="Browserify模块化使用教程"></a><code>Browserify</code>模块化使用教程</h5></li>
+<li><code>exports.xxx = value</code><h5 id="引入模块"><a href="#引入模块" class="headerlink" title="引入模块"></a>引入模块</h5><code>require(xxx)</code></li>
 </ul>
-<ol>
+<h6 id="第三方模块、系统模块"><a href="#第三方模块、系统模块" class="headerlink" title="第三方模块、系统模块"></a>第三方模块、系统模块</h6><p>xxx为模块名</p>
+<h6 id="自定义模块"><a href="#自定义模块" class="headerlink" title="自定义模块"></a>自定义模块</h6><p>xxx为模块文件路径</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><h4 id="服务端实现"><a href="#服务端实现" class="headerlink" title="服务端实现"></a>服务端实现</h4><p><code>Node.js</code></p>
+<h4 id="浏览器端实现"><a href="#浏览器端实现" class="headerlink" title="浏览器端实现"></a>浏览器端实现</h4><p><code>Browserify</code><br>也称为CommonJS的浏览器端的打包工具</p>
+<h5 id="Browserify模块化使用教程"><a href="#Browserify模块化使用教程" class="headerlink" title="Browserify模块化使用教程"></a><code>Browserify</code>模块化使用教程</h5><ol>
 <li>创建目录结构</li>
 </ol>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">|- js</span><br><span class="line">	|- dist <span class="comment">// 打包生成文件的目录</span></span><br><span class="line">	|- src <span class="comment">// 源码所在的目录</span></span><br><span class="line">		|- module1.js</span><br><span class="line">		|- module2.js</span><br><span class="line">		|- module3.js</span><br><span class="line">		|- app.js <span class="comment">// 应用主源文件</span></span><br><span class="line">|- index.html</span><br><span class="line">|- package.json</span><br></pre></td></tr></table></figure>
@@ -495,8 +499,33 @@
 <h2 id="ES6"><a href="#ES6" class="headerlink" title="ES6*"></a>ES6*</h2><h3 id="规范-3"><a href="#规范-3" class="headerlink" title="规范"></a>规范</h3><h4 id="说明-3"><a href="#说明-3" class="headerlink" title="说明"></a>说明</h4><ul>
 <li><a href="http://es6.ruanyifeng.com/#docs/module" target="_blank" rel="noopener">http://es6.ruanyifeng.com/#docs/module</a></li>
 <li>依赖模块需要编译打包处理    <h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4></li>
-<li>导出模块：<code>export</code></li>
-<li>引入模块：<code>import xxx from &#39;路径&#39;</code><h3 id="实现（浏览器端）-2"><a href="#实现（浏览器端）-2" class="headerlink" title="实现（浏览器端）"></a>实现（浏览器端）</h3></li>
+<li>导出模块：<code>export</code>，<code>export default</code></li>
+<li>引入模块：<code>import xxx，{xxx} from &#39;路径&#39;</code><h3 id="export和export-default的区别"><a href="#export和export-default的区别" class="headerlink" title="export和export default的区别"></a><code>export</code>和<code>export default</code>的区别</h3></li>
+</ul>
+<p>​      <code>export default</code></p>
+<ol>
+<li><p><code>export default</code>向外暴露的成员，可以使用任意的变量来接受，</p>
+</li>
+<li><p>在一个模块中，<code>export default</code>只允许向外暴露一次，</p>
+</li>
+<li><p>在一个模块中可以同时使用<code>export default</code>和<code>export</code>向外暴露成员，</p>
+<p><code>export</code></p>
+</li>
+<li><p>使用<code>export</code>向外暴露的成员，只能使用<code>{}</code>的形式来接收，这种形式叫（按需导出），</p>
+</li>
+<li><p><code>export</code>可以向外暴露多个成员，同时，如果某些成员在<code>import</code>的时侯不需要则可以不在<code>{}</code>中定义</p>
+</li>
+<li><p>使用<code>export</code>导出的成员必须严格安装导出时的名称使用<code>{}</code>接收，</p>
+</li>
+<li><p>如果想换个名称来接收的话可以使用<code>as</code>改名；</p>
+</li>
+</ol>
+<p>例如：</p>
+<p>module1.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> msg = <span class="string">'hello world'</span></span><br></pre></td></tr></table></figure>
+<p>module2.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;msg <span class="keyword">as</span> msg222&#125; <span class="keyword">from</span> <span class="string">'./m'</span></span><br></pre></td></tr></table></figure>
+<h3 id="实现（浏览器端）-2"><a href="#实现（浏览器端）-2" class="headerlink" title="实现（浏览器端）"></a>实现（浏览器端）</h3><ul>
 <li>使用<code>Babel</code>将ES6编译为ES5代码</li>
 <li>使用<code>Browserify</code>编译打包js<h4 id="ES6-Babel-Browserify使用教程"><a href="#ES6-Babel-Browserify使用教程" class="headerlink" title="ES6-Babel-Browserify使用教程"></a>ES6-Babel-Browserify使用教程</h4></li>
 </ul>
@@ -674,7 +703,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -696,7 +725,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -745,7 +774,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#模块化规范"><span class="nav-number">1.</span> <span class="nav-text">模块化规范</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CommonJS"><span class="nav-number">1.1.</span> <span class="nav-text">CommonJS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#规范"><span class="nav-number">1.1.1.</span> <span class="nav-text">规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#说明"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本语法"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#暴露模块"><span class="nav-number">1.1.1.2.1.</span> <span class="nav-text">暴露模块</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#引入模块"><span class="nav-number">1.1.1.2.2.</span> <span class="nav-text">引入模块</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#第三方模块、系统模块"><span class="nav-number">1.1.1.2.2.1.</span> <span class="nav-text">第三方模块、系统模块</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#自定义模块"><span class="nav-number">1.1.1.2.2.2.</span> <span class="nav-text">自定义模块</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现"><span class="nav-number">1.1.2.</span> <span class="nav-text">实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#服务端实现"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">服务端实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器端实现"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">浏览器端实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Browserify模块化使用教程"><span class="nav-number">1.1.2.2.1.</span> <span class="nav-text">Browserify模块化使用教程</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AMD"><span class="nav-number">1.2.</span> <span class="nav-text">AMD</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#规范-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#说明-1"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本语法-1"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#定义暴露模块"><span class="nav-number">1.2.1.2.1.</span> <span class="nav-text">定义暴露模块</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#引入使用模块"><span class="nav-number">1.2.1.2.2.</span> <span class="nav-text">引入使用模块</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现（浏览器端）"><span class="nav-number">1.2.2.</span> <span class="nav-text">实现（浏览器端）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#require-js使用教程"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">require.js使用教程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CMD（了解）"><span class="nav-number">1.3.</span> <span class="nav-text">CMD（了解）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#规范-2"><span class="nav-number">1.3.1.</span> <span class="nav-text">规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#说明-2"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本语法-2"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#定义暴露模块-1"><span class="nav-number">1.3.1.2.1.</span> <span class="nav-text">定义暴露模块</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#引入使用模块-1"><span class="nav-number">1.3.1.2.2.</span> <span class="nav-text">引入使用模块</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现（浏览器端）-1"><span class="nav-number">1.3.2.</span> <span class="nav-text">实现（浏览器端）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6"><span class="nav-number">1.4.</span> <span class="nav-text">ES6*</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#规范-3"><span class="nav-number">1.4.1.</span> <span class="nav-text">规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#说明-3"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#语法"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现（浏览器端）-2"><span class="nav-number">1.4.2.</span> <span class="nav-text">实现（浏览器端）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ES6-Babel-Browserify使用教程"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">ES6-Babel-Browserify使用教程</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#模块化规范"><span class="nav-number">1.</span> <span class="nav-text">模块化规范</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CommonJS"><span class="nav-number">1.1.</span> <span class="nav-text">CommonJS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#规范"><span class="nav-number">1.1.1.</span> <span class="nav-text">规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#说明"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本语法"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#暴露模块"><span class="nav-number">1.1.1.2.1.</span> <span class="nav-text">暴露模块</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#引入模块"><span class="nav-number">1.1.1.2.2.</span> <span class="nav-text">引入模块</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#第三方模块、系统模块"><span class="nav-number">1.1.1.2.2.1.</span> <span class="nav-text">第三方模块、系统模块</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#自定义模块"><span class="nav-number">1.1.1.2.2.2.</span> <span class="nav-text">自定义模块</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现"><span class="nav-number">1.1.2.</span> <span class="nav-text">实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#服务端实现"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">服务端实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器端实现"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">浏览器端实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Browserify模块化使用教程"><span class="nav-number">1.1.2.2.1.</span> <span class="nav-text">Browserify模块化使用教程</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AMD"><span class="nav-number">1.2.</span> <span class="nav-text">AMD</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#规范-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#说明-1"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本语法-1"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#定义暴露模块"><span class="nav-number">1.2.1.2.1.</span> <span class="nav-text">定义暴露模块</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#引入使用模块"><span class="nav-number">1.2.1.2.2.</span> <span class="nav-text">引入使用模块</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现（浏览器端）"><span class="nav-number">1.2.2.</span> <span class="nav-text">实现（浏览器端）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#require-js使用教程"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">require.js使用教程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CMD（了解）"><span class="nav-number">1.3.</span> <span class="nav-text">CMD（了解）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#规范-2"><span class="nav-number">1.3.1.</span> <span class="nav-text">规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#说明-2"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本语法-2"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#定义暴露模块-1"><span class="nav-number">1.3.1.2.1.</span> <span class="nav-text">定义暴露模块</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#引入使用模块-1"><span class="nav-number">1.3.1.2.2.</span> <span class="nav-text">引入使用模块</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现（浏览器端）-1"><span class="nav-number">1.3.2.</span> <span class="nav-text">实现（浏览器端）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6"><span class="nav-number">1.4.</span> <span class="nav-text">ES6*</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#规范-3"><span class="nav-number">1.4.1.</span> <span class="nav-text">规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#说明-3"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#语法"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#export和export-default的区别"><span class="nav-number">1.4.2.</span> <span class="nav-text">export和export default的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现（浏览器端）-2"><span class="nav-number">1.4.3.</span> <span class="nav-text">实现（浏览器端）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ES6-Babel-Browserify使用教程"><span class="nav-number">1.4.3.1.</span> <span class="nav-text">ES6-Babel-Browserify使用教程</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -779,7 +808,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">21.1k</span>
+    <span title="Site words total count">30.7k</span>
   
 </div>
 
